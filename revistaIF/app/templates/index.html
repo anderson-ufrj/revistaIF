@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revista IF</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.0/gsap.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f9;
+        }
+
+        #banner {
+            background-color: #001f3f; /* Azul marinho */
+            color: white;
+            text-align: center;
+            padding: 50px;
+        }
+
+        #banner h1 {
+            font-size: 48px;
+            margin: 0;
+        }
+
+        #menu {
+            background-color: #021a33;
+            color: white;
+            
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+
+        #menu ul {
+            list-style: none;
+            display: flex;
+            padding: 0;
+            justify-content: center;
+        }
+
+        #menu li {
+            margin: 0 20px;
+        }
+
+        #menu a {
+            text-decoration: none;
+            color: rgb(255, 255, 255);
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+
+        #menu a:hover {
+            color: #0f529e; /* Azul mais claro ao passar o mouse */
+        }
+
+        .section {
+            background-color: #ffffff; /* Fundo branco para seções */
+            padding: 50px;
+            margin: 30px 0;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2 {
+            color: #001f3f; /* Azul marinho escuro para títulos de seções */
+        }
+    </style>
+</head>
+<body>
+    <div id="banner">
+        <h1>Revista IF</h1>
+    </div>
+
+    <div id="menu">
+        <ul>
+            <li><a href="#artigos">Artigos</a></li>
+            <li><a href="#colunas">Colunas</a></li>
+            <li><a href="#informacoes">Informações</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+    </div>
+
+    <div class="section" id="artigos">
+        <h2>Artigos</h2>
+        {% for Artigo in artigos %}
+        <tbody>
+            <td>{{Artigo.titulo}}</td>
+        </tbody>
+        {% endfor %}
+    </div>
+
+    <div class="section" id="colunas">
+        <h2>Colunas</h2>
+        <!-- Conteúdo da seção de Colunas -->
+    </div>
+
+    <div class="section" id="informacoes">
+        <h2>Informações</h2>
+        <!-- Conteúdo da seção de Informações -->
+    </div>
+
+    <div class="section" id="contato">
+        <h2>Contato</h2>
+        <!-- Conteúdo da seção de Contato -->
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.0/gsap.min.js"></script>
+    <script>
+        // Adicione suas animações GSAP personalizadas aqui
+        gsap.from(".section", {
+            opacity: 0,
+            y: 100,
+            duration: 1,
+            stagger: 0.3,
+            scrollTrigger: {
+                trigger: ".section",
+                start: "top 90%",
+                end: "bottom 60%",
+                scrub: true
+            }
+        });
+    </script>
+</body>
+</html>
+
